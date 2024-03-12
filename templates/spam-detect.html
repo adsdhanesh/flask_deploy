@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage with Inputs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZWjwM6kJMGH5UrbtfiqBNWMXBCLXk1J3Jww&usqp=CAU");
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 style="color: #4caf50;">SPAM-DETECTION</h1>
+        <form action="http://localhost:5000/spam" method="post">
+        <label for="input1">NAME:</label><br>
+        <br><input type="text" id="input1" placeholder="Enter text" name="name">
+        <br>
+        <label for="input2">E-MAIL MESSAGE:</label><br>
+        <br>
+        <input type="text" id="input2" placeholder="Enter text" name="message">
+
+        <input type="submit" class="btn">
+        {% if prediction==1 %}
+        <p>Kindly aware of your e-mail message because your message contains <strong>Spam</strong></p>
+        {% endif %}
+        {% if prediction==0 %}
+        <p>now you will be safe result is <strong>ham</strong> so be positive</p>
+        {% endif %}
+        </form>
+    </div>
+</body>
+</html>

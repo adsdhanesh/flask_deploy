@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe1ZQQ0Ckjoc9vuQyU6cz56fjvBEnGMjkZTQ&s");
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            justify-content: left;
+        }
+
+        input {
+            width: 35%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            color: beige;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: rgb(13, 17, 6);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>ML Deploy Page</title>
+</head>
+<body>
+
+    <h2 style="color: bisque;">Credit-Card-Prediction</h2>
+
+    <form id="mlForm" action="http://localhost:5000/credit_card" method="post">
+        <label for="input1">trans_num:</label>
+        <input type="number" id="input1" name="trans_num" placeholder="Enter value for Input 1" required>
+
+        <label for="input2">category:</label>
+        <input type="number" id="input2" name="category" placeholder="Enter value for Input 2" required>
+
+        <label for="input3">amt:</label>
+        <input type="number" id="input2" name="amt" placeholder="Enter value for Input 2" required>
+
+        <label for="input4">trans_date_trans_time:</label>
+        <input type="number" id="input2" name="trans_date_trans_time" placeholder="Enter value for Input 2" required>
+
+        <label for="input5">unix_time:</label>
+        <input type="number" id="input2" name="unix_time" placeholder="Enter value for Input 2" required><br>
+
+        <br><input type="submit" class="btn" name="submit">
+        {% if prediction==1 %}
+        <p>Sorry, your card under custom service <strong> may be you got in fraud </strong>kindly check what happended to him</p>
+        {% endif %}
+        {% if prediction==0 %}
+        <p>Your card is <strong>on service</strong></p>
+        {% endif %}
+    </form>
+</body>
+</html>

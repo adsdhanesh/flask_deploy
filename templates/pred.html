@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('movie') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://img.freepik.com/free-vector/cinema-realistic-poster-with-illuminated-bucket-popcorn-drink-3d-glasses-reel-tickets-blue-background-with-tapes-vector-illustration_1284-77070.jpg?w=740&t=st=1710063467~exp=1710064067~hmac=aa08aa2d1d1c2c2ee60509ce5dce01b243f74d043ab9d01de99dbb9d85fe4fa6");
+        }
+
+        .container {
+            text-align: center;
+            color: #fff;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+        .btn{
+            width: 100%;
+            padding: 10px;
+            background-color: #6e5cb3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover{
+            background-color: #210c64;
+        }
+
+        @media (max-width: 600px) {
+            input {
+                width: 80%;
+            }
+        }
+    </style>
+    <title>Responsive Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: black;">MOVIE GENRE PREDICTION</h1>
+        <form action="http://localhost:5000/pred" method="post">
+            <label style="color: #270909; background-color: red; border-radius: 25%;"><b>MOVIE NAME</b></label><br>
+            <input type="text" placeholder="Enter something" name="movie_name">
+            <br>
+            <label style="color: #270909; background-color: red; border-radius: 25%;"><b>DESCRIPTION</b></label>
+            <br>
+            <input type="text" placeholder="Enter something else" name="description"><br>
+            <input type="submit" class="btn" name="submit" value="SHOW ME A GENRE">
+            {% if prediction %}
+            <p style="color: black;">you previously selected movie is <strong style="color:aliceblue">{{movie_name}}</strong> and their prediction <strong style="color: aliceblue;">{{ prediction }}</strong></p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
